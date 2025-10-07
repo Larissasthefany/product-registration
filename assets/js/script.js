@@ -9,7 +9,13 @@ class Product {
 
   register() {
     const list = document.createElement("li");
-    list.innerHTML = `Nome: ${this.name} | Categoria: ${this.category} | Código: ${this.coder} | Preço: R$${this.price}`;
+
+    const priceFormatted = parseFloat(this.price).toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    });
+
+    list.innerHTML = `Nome: ${this.name} | Categoria: ${this.category} | Código: ${this.coder} | Preço: ${priceFormatted}`;
     registeredProducts.appendChild(list);
   }
 
@@ -18,12 +24,15 @@ class Product {
   }
 }
 
+jQuery(document).ready(function ($) {
+  $(".money").mask("000.000.000.000.000,00", { reverse: true });
+});
+
 function getFormData(form) {
   const data = {};
   for (let el of form.elements) {
     if (el.name) data[el.name] = el.value.trim();
   }
-
   return data;
 }
 
@@ -31,14 +40,13 @@ function validateData(data, form) {
   let isValid = true;
 
   Object.keys(data).forEach((key) => {
-    const input = form[key];
-
+    const input = form.elements[key];
     if (!data[key]) {
       if (isValid) input.focus();
       isValid = false;
-      input.classList.add("error");
+      if (input) input.classList.add("error");
     } else {
-      input.classList.remove("error");
+      if (input) input.classList.remove("error");
     }
   });
 
@@ -59,31 +67,34 @@ form.addEventListener("submit", (e) => {
     return;
   }
 
-  if(!/^\d{1,7}$/.test(data.coder)){
-    message.innerText = "O código deve ter no mínimo 7 caracteres.";
+  if (!/^\d{1,7}$/.test(data.coder)) {
+    message.innerText = "O código deve ter no máximo 7 números.";
     message.style.color = "red";
-    form.coder.focus();
-    form.coder.classList.add("error");
+    const input = form.elements["coder"];
+    input.focus();
+    input.classList.add("error");
     return;
-  }else {
-    form.coder.classList.remove("error");
+  } else {
+    form.elements["coder"].classList.remove("error");
   }
 
-  if(isNaN(data.price) || parseFloat(data.price) <= 0){
+  const priceClean = data.price.replace(/\./g, "").replace(",", ".");
+  if (isNaN(priceClean) || parseFloat(priceClean) <= 0) {
     message.innerText = "Por favor, insira um preço válido.";
     message.style.color = "red";
-    form.price.classList.add("error");
-    form.price.focus();
+    const input = form.elements["price"];
+    input.focus();
+    input.classList.add("error");
     return;
-  }else{
-    form.price.classList.remove("error");
+  } else {
+    form.elements["price"].classList.remove("error");
   }
 
   const product = new Product(
     data.name,
     data.category,
     data.coder,
-    parseFloat(data.price).toFixed(2)
+    priceClean
   );
 
   product.register();
@@ -91,5 +102,8 @@ form.addEventListener("submit", (e) => {
 
   message.innerText = "Produto cadastrado com sucesso!";
 
-  Object.keys(data).forEach((key) => form[key].classList.remove("error"));
+  Object.keys(data).forEach((key) => {
+    const input = form.elements[key];
+    if (input) input.classList.remove("error");
+  });
 });
