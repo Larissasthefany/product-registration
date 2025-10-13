@@ -1,4 +1,4 @@
-# 🛒 Product Register  
+# 🛒 Product Register
 
 ![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
 ![License](https://img.shields.io/badge/license-MIT-blue)
@@ -18,138 +18,129 @@ Os dados são salvos localmente no navegador, garantindo que as informações n�
 
 ---
 
-## 🖼️ **Exemplo da Interface**
+## 🖼️ **Demonstração do Projeto**
 
 <div align="center">
-  <img src="assets/demo.gif" alt="Demonstração do Product Register" width="80%">
+  <a href="assets/demo.gif">
+    <img src="assets/design/form.png" alt="Demonstração do Product Register" width="80%">
+  </a>
   <br>
-  <em>Cadastro e exclusão de produtos em ação!</em>
+  <em>Clique no GIF para ver em tamanho real — cadastro e exclusão de produtos em ação!</em>
 </div>
 
 ---
 
 ## ⚙️ **Funcionalidades**
 
-✅ **Cadastro de produtos com validação inteligente**  
-- O **nome** aceita apenas letras e espaços  
-- O **código** precisa ter **exatamente 7 números**  
-- O **preço** deve ser **positivo e válido**  
+✅ **Cadastro de produtos com validação inteligente**
 
-✅ **Armazenamento local com localStorage**  
-- Todos os produtos ficam salvos no navegador, sem necessidade de servidor  
+- Nome: apenas letras e espaços
+- Código: exatamente 7 números
+- Preço: positivo e válido
 
-✅ **Listagem organizada em tabela**  
-- Exibe nome, categoria, código e preço formatado em **Real (R$)**  
+✅ **Armazenamento local com localStorage**
 
-✅ **Exclusão de produtos**  
-- Cada linha possui um botão 🗑️ para remover produtos individualmente  
-- Possibilidade de adicionar **confirmação antes de deletar** para evitar exclusões acidentais  
+- Persistência de dados sem servidor
 
-✅ **Feedback visual ao usuário**  
-- Mensagens de sucesso e erro ajudam a entender o que está acontecendo  
+✅ **Listagem organizada em tabela**
 
----
+- Exibe nome, categoria, código e preço formatado em **R$**
 
-## 🧠 **Motivação do Projeto**
+✅ **Exclusão de produtos**
 
-Este projeto foi criado com o objetivo de praticar:
-- **Manipulação do DOM** com JavaScript puro  
-- **Validação de formulários** com regex  
-- **Uso de localStorage** para persistência de dados  
-- **Boas práticas de estrutura e feedback ao usuário**
+- Botão 🗑️ para remover produtos individualmente
+- Confirmação opcional antes de deletar
+
+✅ **Feedback visual ao usuário**
+
+- Mensagens de sucesso e erro para orientar o usuário
 
 ---
 
 ## 🧩 **Tecnologias Utilizadas**
 
-| Tecnologia | Descrição |
-|-------------|------------|
-| **HTML5** | Estrutura e semântica das páginas |
-| **CSS3** | Estilização, layout e responsividade |
-| **JavaScript (ES6)** | Lógica de cadastro, validação e armazenamento |
-| **jQuery Mask Plugin** | Máscara de entrada para o campo de preço |
-| **localStorage API** | Armazenamento local dos produtos |
+| Tecnologia             | Descrição                                     |
+| ---------------------- | --------------------------------------------- |
+| **HTML5**              | Estrutura e semântica                         |
+| **CSS3**               | Layout e responsividade                       |
+| **JavaScript (ES6)**   | Lógica de cadastro, validação e armazenamento |
+| **jQuery Mask Plugin** | Máscara de entrada para preço                 |
+| **localStorage API**   | Armazenamento local                           |
 
 ---
 
-## 📂 **Estrutura do Projeto**
+---
 
-📁 product-register
-│
-├── index.html # Página principal (formulário de cadastro)
-├── registered.html # Página com a tabela de produtos
-├── assets/
-│ ├── css/
-│ │ ├── global.css # Estilos globais
-│ │ └── styles.css # Estilos da interface
-│ ├── js/
-│ │ ├── product.js # Classe Product (estrutura e métodos)
-│ │ ├── script.js # Lógica de cadastro e validação
-│ │ └── registered.js # Listagem e exclusão de produtos
-│ └── demo.gif # GIF de demonstração da interface
-└── README.md # Documentação
+## 🎨 **Design e Usabilidade**
 
+O projeto foi desenvolvido pensando em simplicidade e clareza:
+
+- Layout centralizado e responsivo
+- Botões com cores distintas e efeitos de hover
+- Tabela com contraste para leitura fácil
+- Mensagens dinâmicas para orientar o usuário
+
+### 🖼️ Screenshots do Design
+
+<div align="center">
+
+<a href="assets/design/home.png">
+  <img src="assets/design/form.png" alt="Tela Inicial" width="30%">
+</a>
+<a href="assets/design/products.png">
+  <img src="assets/design/registered.png" alt="Página de Produtos" width="30%">
+</a>
+
+<p><em>Clique nas imagens para ver em tamanho real</em></p>
+</div>
 
 ---
 
 ## 🖥️ **Como Executar o Projeto**
 
-1. **Clone este repositório**
-   ```bash
-   git clone https://github.com/seu-usuario/product-register.git
+1. **Clone o repositório**
 
-   cd product-register
-
-
-Abra o arquivo index.html
-
-Clique duas vezes ou abra com seu navegador preferido.
-
-Cadastre produtos e veja a mágica acontecer ✨
+```bash
+git clone https://github.com/seu-usuario/product-register.git
+cd product-register
+```
 
 ---
 
-🎨 Design e Usabilidade
+💡Próximas Melhorias
 
-O projeto foi desenvolvido pensando na simplicidade e clareza:
+- Editar produto
+- Buscar e filtrar por nome ou categoria
+- Confirmação antes de excluir
+- Conectar com backend (Node.js ou Firebase)
+- Tema escuro (dark mode)
 
-Layout centralizado e responsivo
-
-Botões com cores distintas e efeitos de hover
-
-Tabela com contraste para leitura fácil
-
-Mensagens dinâmicas para orientar o usuário
+<br>
 
 ---
-
-
-💡 Próximas Melhorias
-
-🚀 Ideias para evoluir o projeto:
-
- Adicionar função de editar produto
-
- Implementar busca e filtro por nome ou categoria
-
- Adicionar confirmação antes de excluir
-
- Conectar com backend (ex: Node.js ou Firebase)
-
- Criar tema escuro (dark mode)
-
- ---
 
 🙌 Aprendizados
 
-Durante o desenvolvimento deste projeto, foi possível:
+- Validação de entradas com regex
+- Uso do localStorage para persistência de dados
+- Prática de JavaScript moderno (ES6)
+- Importância de uma UX clara e responsiva
 
-Aprender sobre validação de entradas com regex
+<br>
 
-Usar localStorage como alternativa de banco local
+---
 
-Praticar JavaScript moderno (ES6)
+<br>
 
-Reforçar a importância de uma UX clara e responsiva
+## 🤝 Contribuindo
 
+Contribuições são super bem-vindas!
+Sinta-se livre para abrir issues ou enviar pull requests.
 
+---
+
+<br>
+
+## 👩‍💻 Desenvolvido por
+
+**Larissa Sthefany**
