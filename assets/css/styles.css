@@ -25,7 +25,7 @@ header {
 
 nav .btn {
   width: 100px;
-  padding: 1px 7px;
+  padding: 3px 7px;
   border-radius: 2px;
   background-color: rgb(104, 104, 212);
 }
@@ -158,3 +158,9 @@ td {
 table, th, tr, td{
   border: 1px solid #c9c7c7;
 }
+
+.delete-btn{
+  border: none;
+  cursor: pointer;
+}
+
