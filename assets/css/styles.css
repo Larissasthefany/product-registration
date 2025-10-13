@@ -6,6 +6,14 @@ body {
   min-height: 100vh;
 }
 
+.hidden{
+  display: none;
+}
+
+.active{
+  display: block;
+}
+
 header {
   display: flex;
   justify-content: flex-end;
@@ -110,4 +118,43 @@ form input, form select{
 
 input{
     width: 300px;
+}
+
+.main-content{
+ margin-top: 40px;
+}
+
+.title{
+  margin-bottom: 20px;
+}
+
+table {
+  border-collapse: collapse;
+  background: #fff;
+}
+
+th {
+  font-size: 0.85em;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 0.05em;
+  padding: 0.75em 1.5em;
+  background-color: rgb(97, 97, 231);
+  color: #fff
+}
+
+td {
+  padding: 0.75em 1.5em;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+th,
+td {
+  white-space: nowrap;
+  text-align: center;
+}
+
+table, th, tr, td{
+  border: 1px solid #c9c7c7;
 }
