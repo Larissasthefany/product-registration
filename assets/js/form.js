@@ -49,11 +49,20 @@ form.addEventListener("submit", (e) => {
     return;
   }
 
-  if (!/^\d{1,7}$/.test(data.coder)) {
+  if (!/^\d{7}$/.test(data.coder)) {
     message.innerText = "Código deve ter no máximo 7 números!";
     message.style.color = "red";
     form.elements["coder"].focus();
     form.elements["coder"].classList.add("error");
+    return;
+  }
+
+  // valida nome — apenas letras e espaços
+  if (!/^[A-Za-zÀ-ÿ\s]+$/.test(data.name)) {
+    message.innerText = "O nome do produto deve conter apenas letras!";
+    message.style.color = "red";
+    form.elements["name"].focus();
+    form.elements["name"].classList.add("error");
     return;
   }
 
